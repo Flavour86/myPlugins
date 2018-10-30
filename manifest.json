@@ -1,0 +1,38 @@
+{
+  "name": "myPlugins",
+  "manifest_version": 2,
+  "version": "1.0.0",
+  "icons": {
+    "16": "img/logo.png"
+  },
+  "background": {
+    "scripts": ["js/background.js"]
+  },
+  "browser_action": {
+    "default_icon": "img/logo.png",
+    "default_title": "这是一个示例Chrome插件",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "contextMenus",
+    "tabs",
+    "notifications",
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/jquery-1.8.3.js", "js/content-script.js"],
+      "css": ["css/custom.css"]
+    }
+  ],
+  "web_accessible_resources": ["js/inject.js"],
+  "homepage_url": "https://www.baidu.com",
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  }
+}
